@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">Fleet Management Admin</div>
+        <nav>
+            <a href="#">Dashboard</a>
+            <a href="#">Settings</a>
+            <a href="#">Logout</a>
+        </nav>
+    </header>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <h3><i class="fas fa-truck"></i> Fleet Form</h3>
+            <form id="fleetForm">
+                <div class="form-group">
+                    <label for="regNo">Reg No of Vehicle *</label>
+                    <input type="text" id="regNo" name="regNo" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Category *</label>
+                    <select id="category" name="category" required>
+                        <option value="" disabled selected>Select Category</option>
+                        <option value="Auto">Auto</option>
+                        <option value="Car">Car</option>
+                        <option value="Truck">Truck</option>
+                        <option value="Bus">Bus</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="driverName">Driver Name *</label>
+                    <input type="text" id="driverName" name="driverName" required>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="isAvailable" name="isAvailable" checked>
+                    <label for="isAvailable">Is Available</label>
+                    <span class="availability-status" id="availabilityStatus">
+                        (Available)
+                    </span>
+                </div>
+
+                <button type="submit" id="addFleetBtn"><i class="fas fa-plus-circle"></i> Add Fleet</button>
+            </form>
+        </aside>
+
+        <main class="main-content">
+            <h2><i class="fas fa-th-large"></i> Fleet Overview</h2>
+            <div class="fleet-cards-container" id="fleetCardsContainer">
+                </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
