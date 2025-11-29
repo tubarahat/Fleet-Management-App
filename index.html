@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fleet Management App - Login</title>
+</head>
+<body style="font-family: Arial, sans-serif; text-align: center;">
+
+    <h1>Fleet Management App</h1>
+    <hr>
+
+    
+    <div id="login-view">
+        <h2>Page 1: Login Page</h2>
+        <form id="login-form" onsubmit="event.preventDefault(); checkLogin();">
+            
+            <fieldset style="width: 300px; margin: 0 auto; border: 1px solid #ccc; padding: 20px;">
+                <legend>Login</legend>
+                
+                <label for="email">Email Input:</label><br>
+                
+                <input type="email" id="email" name="email" value="admin@gmail.com" required style="margin-bottom: 10px; width: 90%;"><br>
+
+                
+                <label for="password">Password Input:</label><br>
+                <input type="password" id="password" name="password" value="admin1234" required style="margin-bottom: 20px; width: 90%;"><br>
+
+                
+                <button type="submit">A Login button</button>
+            </fieldset>
+        </form>
+        <p>
+            Valid Credentials: <br>
+            Email: <b>admin@gmail.com</b> <br>
+            Password: <b>admin1234</b>
+        </p>
+    </div>
+
+    
+    <div id="admin-view" style="display: none; padding: 20px; border: 2px dashed #000; margin: 20px auto; width: 400px;">
+        <h2>Page 2: Admin Dashboard (admin.html)</h2>
+        <p>Login success! This simulates the redirection to admin.html.</p>
+        <p>Welcome to the Fleet Management System.</p>
+
+        <button onclick="toggleView('login-view')">Logout</button>
+    </div>
+
+    <script>
+        
+        const VALID_EMAIL = "admin@gmail.com";
+        const VALID_PASSWORD = "admin1234";
+
+        
+        function toggleView(viewId) {
+            const loginView = document.getElementById('login-view');
+            const adminView = document.getElementById('admin-view');
+
+            if (viewId === 'login-view') {
+                adminView.style.display = 'none';
+                loginView.style.display = 'block';
+            } else if (viewId === 'admin-view') {
+                loginView.style.display = 'none';
+                adminView.style.display = 'block';
+            }
+        }
+
+        
+        function checkLogin() {
+            const emailInput = document.getElementById('email');
+            const passwordInput = document.getElementById('password');
+
+            const email = emailInput.value.trim();
+            const password = passwordInput.value.trim();
+
+            if (email === VALID_EMAIL && password === VALID_PASSWORD) {
+                
+                alert("Login success");
+
+                
+                toggleView('admin-view');
+
+            } else {
+                
+                alert("Wrong email or password");
+            }
+        }
+
+        
+        toggleView('login-view');
+    </script>
+</body>
+</html>
+
